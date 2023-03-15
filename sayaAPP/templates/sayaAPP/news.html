@@ -16,7 +16,7 @@
             <div class="news_section_2">
                <div class="row">
                   <div class="col-md-6">
-                     <div class="news_img"><img src="{% static 'images/news-img.png' %}"></div>
+                     <div class="news_img"><img src="{{post.image.url}}"></div>
                   </div>
                   <div class="col-md-6">
                      <h1 class="give_taital">{{post.title}}</h1>
