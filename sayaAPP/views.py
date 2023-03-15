@@ -25,4 +25,6 @@ def mission(request):
 
 def news(request):
 
-    return render(request, 'sayaAPP/news.html')
+    posts = Post.objects.all()
+
+    return render(request, 'sayaAPP/news.html',{'posts': posts})
