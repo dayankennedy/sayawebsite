@@ -265,7 +265,7 @@ button {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
-    color:#00ccff;
+    color: #00ccff;
 }
 
 .navbar-expand-lg .navbar-collapse {
