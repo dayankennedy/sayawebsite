@@ -140,7 +140,7 @@ STORAGES = {
 
 # media root(image, videos)
 
-MEDIA_URL = 'Media/media/'jj
+MEDIA_URL = 'Media/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media/media/')
 
 # Default primary key field type
