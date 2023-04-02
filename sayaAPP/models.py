@@ -1,6 +1,8 @@
 from django.db import models
-
+from django.contrib.auth import get_user_model
 # Create your models here.
+User = get_user_model()
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -13,13 +15,19 @@ class Post(models.Model):
 
 
 class CommentPost(models.Model):
-    author = models.ForeignKey(models.ForeignKey)
-    comment_text = models.TextField(max_length=255, blank=True)
-    date_crated = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=50)
+    text = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self) -> str:
-        return self.comment_text
-    
+    def __str__(self):
+        return self.author
+
 
 class LikePost(models.Model):
-    pass
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    # def __str__(self):
+    #     return f"{self.user.username} likes {self.post.title}

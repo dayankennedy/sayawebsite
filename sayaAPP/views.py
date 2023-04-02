@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from .models import *
 # Create your views here.
 
@@ -28,3 +29,16 @@ def news(request):
     posts = Post.objects.all()
 
     return render(request, 'sayaAPP/news.html',{'posts': posts})
+
+
+@login_required
+def like_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    LikePost.objects.create(user=request.user, post=post)
+    return redirect('post_detail', post_id=post.id)
+
+@login_required
+def unlike_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    LikePost.objects.filter(user=request.user, post=post).delete()
+    return redirect('post_detail', post_id=post.id)
