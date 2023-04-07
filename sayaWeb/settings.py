@@ -9,18 +9,15 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 from pathlib import Path
 import os
 import dj_database_url
 import environ
-
 # configure environment variable
 env=environ.Env()
 environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -30,12 +27,9 @@ SECRET_KEY = 'django-insecure-2zfm$b+++0bvn^&h!=%0&=p!s66nywte@n5mg*95p9_zklt4@x
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sayaAPP'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', 
@@ -73,9 +66,7 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'sayaWeb.wsgi.application'
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -146,5 +137,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media/media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 
-
-
