@@ -22,20 +22,17 @@ def donate(request):
 
 def mission(request):
     return render(request, 'sayaAPP/mission.html')
-
-
 def news(request):
-
     posts = Post.objects.all()
-
     return render(request, 'sayaAPP/news.html',{'posts': posts})
-
 
 @login_required
 def like_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     LikePost.objects.create(user=request.user, post=post)
     return redirect('post_detail', post_id=post.id)
+
+# 
 
 @login_required
 def unlike_post(request, post_id):
