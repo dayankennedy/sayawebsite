@@ -24,6 +24,7 @@ def mission(request):
     return render(request, 'sayaAPP/mission.html')
 def news(request):
     posts = Post.objects.all()
+    # order =posts.order_by(-1)
     return render(request, 'sayaAPP/news.html',{'posts': posts})
 
 @login_required
