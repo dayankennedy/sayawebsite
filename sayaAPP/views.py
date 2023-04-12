@@ -7,25 +7,51 @@ from .models import *
 def base(request):
     return render(request, 'sayaAPP/base.html')
 
+
+
+
+
 def home(request):
     return render(request, 'sayaAPP/home.html')
+
+
+
+
 
 def about(request):
     return render(request, 'sayaAPP/about.html')
 
+
+
+
+
 def contact(request):
     return render(request, 'sayaAPP/contact.html')
+
+
+
+
 
 def donate(request):
 
     return render(request, 'sayaAPP/donate.html')
 
+
+
+
 def mission(request):
     return render(request, 'sayaAPP/mission.html')
+
+
+
+
 def news(request):
     posts = Post.objects.all()
-    # order =posts.order_by(-1)
-    return render(request, 'sayaAPP/news.html',{'posts': posts})
+    context = {'posts': posts}
+    posts = Post.objects.order_by('- pub_date')
+    return render(request, 'sayaAPP/news.html',context)
+
+
 
 @login_required
 def like_post(request, post_id):
