@@ -1,18 +1,20 @@
 from django.urls import path
-from . import views
-from .views import like_post, unlike_post
+from .views import *
+
 
 urlpatterns = [
-    path('base/', views.base, name='base'),
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('donate/', views.donate, name='donate'),
-    path('mission/', views.mission, name='mission'),
-    path('news/', views.news, name='news'),
-    # like and unlike partterns
-    path('post/<int:post_id>/like/', like_post, name='like_post'),
-    path('post/<int:post_id>/unlike/', unlike_post, name='unlike_post')
+
+    path('base/', BaseView.as_view(), name='base'),
+    path('news/', AboutView.as_view(), name='about'),
+    path('news/', ContactView.as_view(), name='contact'),
+    path('news/', DonateView.as_view(), name='donate'),
+    path('news/', MissionView.as_view(), name='mission'),
+    path('news/', BlogListView.as_view(), name='news'),
+    path('news/', PostListView.as_view(), name='post'),
+
+    # # like and unlike partterns
+    # path('post/<int:post_id>/like/', like_post, name='like_post'),
+    # path('post/<int:post_id>/unlike/', unlike_post, name='unlike_post')
 ]
 
 

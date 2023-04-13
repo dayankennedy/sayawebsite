@@ -2,9 +2,11 @@ from django.contrib import admin
 from .models import *
 
 
-# changing the headers to website 
+# changing the headers on the website 
 
-admin.site.site_header = 'SAYA ADMIN'
+admin.site.site_header = 'SRA Admin'
+admin.site.site_title='SRA ADMIN'
+
 
 class PostAdmin(admin.ModelAdmin):
     list_display= ('title', 'pub_date', 'image')

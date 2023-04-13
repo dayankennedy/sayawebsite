@@ -1,68 +1,42 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView,CreateView, TemplateView
+from django.views.generic import DeleteView, UpdateView
 from .models import *
 # Create your views here.
 
 
-def base(request):
-    return render(request, 'sayaAPP/base.html')
+class BaseView(TemplateView):
+    template_name='sayaAPP/Base.html'
+
+
+class AboutView(TemplateView):
+    template_name='sayaAPP/about.html'
+
+
+class ContactView(TemplateView):
+
+    template_name='sayaAPP/contact.html'
+
+
+class DonateView(TemplateView):
+    template_name='sayaAPP/donate.html'
+
+
+class MissionView(TemplateView):
+    template_name='sayaAPP/misson.html'
+
+
+class BlogListView(ListView):
+    model = Post
+    template_name='sayaAPP/news.html'
+
+
+class PostListView(TemplateView):
+    model = Post
+    template_name='sayaAPP/home.html'
 
 
 
 
 
-def home(request):
-    return render(request, 'sayaAPP/home.html')
-
-
-
-
-
-def about(request):
-    return render(request, 'sayaAPP/about.html')
-
-
-
-
-
-def contact(request):
-    return render(request, 'sayaAPP/contact.html')
-
-
-
-
-
-def donate(request):
-
-    return render(request, 'sayaAPP/donate.html')
-
-
-
-
-def mission(request):
-    return render(request, 'sayaAPP/mission.html')
-
-
-
-
-def news(request):
-    posts = Post.objects.all()
-    context = {'posts': posts}
-    posts = Post.objects.order_by('- pub_date')
-    return render(request, 'sayaAPP/news.html',context)
-
-
-
-@login_required
-def like_post(request, post_id):
-    post = Post.objects.get(pk=post_id)
-    LikePost.objects.create(user=request.user, post=post)
-    return redirect('post_detail', post_id=post.id)
-
-# 
-
-@login_required
-def unlike_post(request, post_id):
-    post = Post.objects.get(pk=post_id)
-    LikePost.objects.filter(user=request.user, post=post).delete()
-    return redirect('post_detail', post_id=post.id)
