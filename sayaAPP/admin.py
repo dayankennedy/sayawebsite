@@ -7,7 +7,6 @@ from .models import *
 admin.site.site_header = 'SRA Admin'
 admin.site.site_title='SRA ADMIN'
 
-
 class PostAdmin(admin.ModelAdmin):
     list_display= ('title', 'pub_date', 'image')
 admin.site.register(Post,PostAdmin)

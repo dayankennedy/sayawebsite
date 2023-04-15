@@ -5,12 +5,13 @@ from .views import *
 urlpatterns = [
 
     path('base/', BaseView.as_view(), name='base'),
-    path('news/', AboutView.as_view(), name='about'),
-    path('news/', ContactView.as_view(), name='contact'),
-    path('news/', DonateView.as_view(), name='donate'),
-    path('news/', MissionView.as_view(), name='mission'),
+    # path('post', PostListView.as_view(), name='post'),
+    path('', HomeView.as_view(), name='home'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('donate/', DonateView.as_view(), name='donate'),
+    path('mission/', MissionView.as_view(), name='mission'),
     path('news/', BlogListView.as_view(), name='news'),
-    path('news/', PostListView.as_view(), name='post'),
 
     # # like and unlike partterns
     # path('post/<int:post_id>/like/', like_post, name='like_post'),

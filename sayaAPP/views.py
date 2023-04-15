@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.views.generic import ListView,CreateView, TemplateView
 from django.views.generic import DeleteView, UpdateView
 from .models import *
@@ -30,10 +31,12 @@ class MissionView(TemplateView):
 class BlogListView(ListView):
     model = Post
     template_name='sayaAPP/news.html'
+    context_object_name = 'posts'
+    ordering = ['-pub_date']
 
 
-class PostListView(TemplateView):
-    model = Post
+
+class HomeView(TemplateView):
     template_name='sayaAPP/home.html'
 
 
