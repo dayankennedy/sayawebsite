@@ -11,7 +11,7 @@ urlpatterns = [
     path('contact/', ContactView.as_view(), name='contact'),
     path('donate/', DonateView.as_view(), name='donate'),
     path('mission/', MissionView.as_view(), name='mission'),
-    path('news/', BlogListView.as_view(), name='news'),
+    path('blog/', BlogListView.as_view(), name='blog'),
 
     # # like and unlike partterns
     # path('post/<int:post_id>/like/', like_post, name='like_post'),

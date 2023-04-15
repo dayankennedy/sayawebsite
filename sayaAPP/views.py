@@ -30,7 +30,7 @@ class MissionView(TemplateView):
 
 class BlogListView(ListView):
     model = Post
-    template_name='sayaAPP/news.html'
+    template_name='sayaAPP/blogPage.html'
     context_object_name = 'posts'
     ordering = ['-pub_date']
 
