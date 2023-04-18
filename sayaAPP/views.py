@@ -38,8 +38,3 @@ class BlogListView(ListView):
 
 class HomeView(TemplateView):
     template_name='sayaAPP/home.html'
-
-
-
-
-
