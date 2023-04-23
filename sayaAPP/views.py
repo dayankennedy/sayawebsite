@@ -34,7 +34,8 @@ class BlogListView(ListView):
     context_object_name = 'posts'
     ordering = ['-pub_date']
 
-
-
 class HomeView(TemplateView):
     template_name='sayaAPP/home.html'
+
+
+
