@@ -1,6 +1,7 @@
 from typing import DefaultDict
 from django.db import models
 from django.contrib.auth.models import User
+# from django import forms
 
 # Create your models here.
 
@@ -17,3 +18,12 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+"""
+# contact form
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+"""

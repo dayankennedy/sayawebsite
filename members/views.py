@@ -8,6 +8,9 @@ from django.shortcuts import render, redirect
 from .forms import createUserForm
 from django.contrib import messages
 from .models import *
+from django.core.mail import send_mail
+from django.conf import settings
+# from .forms import ContactForm
 
 app_name = 'members'
 
@@ -22,7 +25,7 @@ def signup(request):
             return redirect('login')
     else:
         form = createUserForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'members/signup.html', {'form': form})
 
 # login function
 def loginPage(request):
@@ -38,7 +41,7 @@ def loginPage(request):
             messages.info(request, 'username OR password is incorrect')
             return redirect("login")
 
-    return render(request, 'loginPage.html')
+    return render(request, 'members/loginPage.html')
 
 # logout views
 def logoutPage(request):
@@ -64,3 +67,30 @@ class UserProfileView(CreateView):
     success_url = reverse_lazy('home')
     def get_object(self):
         return self.request.user
+
+
+
+# conact view
+'''
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            subject = f'New message from {name} ({email})'
+            message = f'{name} ({email}) said: {message}'
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.DEFAULT_FROM_EMAIL],
+            )
+            return render(request, 'contact/thanks.html')
+    else:
+        form = ContactForm()
+    return render(request, 'contact/contact.html', {'form': form})
+
+'''
+
