@@ -4,7 +4,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #a405ee9d !important;
+    background: #ffffff !important;
 }
 
 .user_card {
@@ -12,7 +12,7 @@ html {
     height: 600px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #5e06a7;
+    background:#008000;
     position: relative;
     display: flex;
     justify-content: center;
