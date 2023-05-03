@@ -71,10 +71,10 @@ class UserProfileView(CreateView):
 
 
 # conact view
-'''
+
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = Contact(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
@@ -87,9 +87,11 @@ def contact(request):
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.DEFAULT_FROM_EMAIL],
             )
-            return render(request, 'contact/thanks.html')
+            return render(request, 'members/thanks.html')
     else:
-        form = ContactForm()
-    return render(request, 'contact/contact.html', {'form': form})
+        form = Contact()
+    return render(request, 'members/contact.html', {'form': form})
 
-'''
+
+def thanks(request):
+    return render(request, 'members/thanks.html')
