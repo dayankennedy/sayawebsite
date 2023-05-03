@@ -33,8 +33,9 @@ html {
 
 .login_btn {
     width: 100%;
-    background: #33ccff !important;
+    background: #077fe2 !important;
     color: white !important;
+    border: 2px  solid #fff;
 }
 
 .login_btn:focus {
@@ -57,4 +58,14 @@ html {
 .input_pass:focus {
     box-shadow: none !important;
     outline: 0px !important;
+}
+
+
+.d-flex  a{
+
+    color: gold;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
 }

@@ -32,7 +32,23 @@
       <link rel="stylesheet" href="{% static 'css/owl.carousel.min.' %}">
       <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   
+   
+   <style>
+      .nav-link img {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+      }
+   </style>
+   
    </head>
+
+
+
+
+
+
    <body>
       <!-- header section start -->
       <div class="header_section">
@@ -71,9 +87,12 @@
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'logout'%}">logout</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{%  url 'logout'%}">Acount</a>
+                  <li class="nav-link">
+                  <a href="www.google.com">
+                     <img src="{% static 'images/client-img.png'%}" alt="Profile Picture">
+                  </a>
                   </li>
+
                </ul>
                <form class="form-inline my-2 my-lg-0">
                   <div class="search_icon"><a href="#"><img src="{% static 'images/search-icon.png' %}"></a></div>

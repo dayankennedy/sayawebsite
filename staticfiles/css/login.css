@@ -66,3 +66,13 @@ html {
     padding: 10px;
     margin-top: 10px;
 }
+
+
+.d-flex  a{
+
+    color: gold;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
