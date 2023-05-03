@@ -25,7 +25,7 @@ class DonateView(TemplateView):
 
 
 class MissionView(TemplateView):
-    template_name='sayaAPP/misson.html'
+    template_name='sayaAPP/mission.html'
 
 
 class BlogListView(ListView):
