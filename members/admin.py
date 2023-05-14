@@ -14,7 +14,7 @@ admin.site.register(UserProfile, UserProfileAdmin)
 # contacted messages model
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display=('name','email','message','phone_number')
+    list_display=('name','email','message','phone')
 admin.site.register(Contact, ContactAdmin)
 # donation contact
 

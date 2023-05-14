@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from .forms import createUserForm
 from django.contrib import messages
 from .models import *
+from sayaAPP.models import *
 from django.core.mail import send_mail
 from django.conf import settings
 # from .forms import ContactForm
@@ -74,24 +75,21 @@ class UserProfileView(CreateView):
 
 def contact(request):
     if request.method == 'POST':
-        form = Contact(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
-            subject = f'New message from {name} ({email})'
-            message = f'{name} ({email}) said: {message}'
-            send_mail(
-                subject,
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],
-            )
-            return render(request, 'members/thanks.html')
+        form=Contact()
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        massage=request.POST.get('massage')
+        phone=request.POST.get('phone')
+        form.name=name
+        form.email=email
+        form.massage=massage
+        form.phone=phone
+        form.save()
+        return render (request, 'members/thanks.html') 
     else:
-        form = Contact()
+        pass
     return render(request, 'members/contact.html', {'form': form})
 
-
+# this thanks page
 def thanks(request):
     return render(request, 'members/thanks.html')
