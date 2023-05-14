@@ -11,8 +11,8 @@ from .models import *
 from sayaAPP.models import *
 from django.core.mail import send_mail
 from django.conf import settings
-# from .forms import ContactForm
 
+# from .forms import ContactForm
 app_name = 'members'
 
 # Create your views here.
