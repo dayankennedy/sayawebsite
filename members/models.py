@@ -1,10 +1,6 @@
 from typing import DefaultDict
 from django.db import models
 from django.contrib.auth.models import User
-# from django import forms
-
-# Create your models here.
-
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
@@ -19,7 +15,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return str(self.user)
 
-
+# contac model
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
@@ -30,7 +26,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-
+# donation model
 class DonationContact(models.Model):
     name=models.CharField(max_length=200)
     email=models.EmailField(max_length=4000)
