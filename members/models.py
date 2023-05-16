@@ -20,8 +20,6 @@ class UserProfile(models.Model):
         return str(self.user)
 
 
-
-
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()

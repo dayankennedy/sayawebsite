@@ -75,7 +75,7 @@ class UserProfileView(CreateView):
 
 def contact(request):
     if request.method == 'POST':
-        form=Contact()
+        form=Contact(request.POST)
         name=request.POST.get('name')
         email=request.POST.get('email')
         massage=request.POST.get('massage')
@@ -85,10 +85,8 @@ def contact(request):
         form.massage=massage
         form.phone=phone
         form.save()
-        return render (request, 'members/thanks.html') 
     else:
-        pass
-    return render(request, 'members/contact.html', {'form': form})
+        return render(request, 'members/contact.html')
 
 # this thanks page
 def thanks(request):
