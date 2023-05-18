@@ -411,7 +411,7 @@ button.donate_btn {
     text-align: center;
 }
 
-.send_bt button {
+.send_bt a {
     width: 100%;
     text-align: center;
     font-size: 16px;
@@ -424,7 +424,7 @@ button.donate_btn {
     font-weight: bold;
 }
 
-.send_bt button:hover {
+.send_bt a:hover {
     background-color: #f64646;
 }
 
