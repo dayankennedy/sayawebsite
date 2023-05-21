@@ -38,3 +38,10 @@ class HomeView(TemplateView):
     template_name='sayaAPP/home.html'
 
 
+
+
+
+
+class DonationView(TemplateView):
+
+    template_name='sayaApp/donation.html'

@@ -44,7 +44,12 @@
       <!-- signup ends -->
 
 
+      <!-- donation starts -->
 
+      <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{% static 'css/donate.css'  %}">
+<!--  donation ends -->
    <style>
       .nav-link img {
          width: 40px;
@@ -122,18 +127,19 @@
                      <div class="footer_menu_left">
                         <div class="footer_menu">
                            <ul>
-                              <li><a href="index.html">Home</a></li>
-                              <li><a href="donate.html">Donate</a></li>
-                              <li><a href="contact.html">Contact us</a></li>
+                              <li><a href="{%  url 'home'  %}">Home</a></li>
+                              <li><a href="{%  url 'donate' %}">Donate</a></li>
+                              <li><a href="{%  url 'donation' %}">Donations</a></li>
+                              <li><a href="{%  url 'contact' %}">Contact us</a></li>
                            </ul>
                         </div>
                      </div>
                      <div class="footer_menu_right">
                         <div class="footer_menu">
                            <ul>
-                              <li><a href="about.html">About</a></li>
-                              <li><a href="news.html">News</a></li>
-                              <li><a href="mission.html">Our Mission</a></li>
+                           <li><a href="{%  url 'about' %}">About</a></li>
+                              <li><a href="{% url 'blog' %}">News</a></li>
+                              <li><a href="{% url 'mission' %}">Our Mission</a></li>
                            </ul>
                         </div>
                      </div>
@@ -194,9 +200,12 @@
       <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script> 
       
       
+<!-- donation -->
 
 
-
+<script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' %}"></script>
+<script src="{% static 'https://raw.githubusercontent.com/jerryluk/jquery.autogrow/master/jquery.autogrow-min.js' %}"></script>
+<script  src="{% static 'js/donate.js' %}"></script>
 
       
     <!-- signup js starts -->
