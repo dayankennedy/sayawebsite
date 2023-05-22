@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.views.generic import ListView,CreateView, TemplateView
 from django.views.generic import DeleteView, UpdateView
+from django.views.generic import DetailView
 from .models import *
 # Create your views here.
 
