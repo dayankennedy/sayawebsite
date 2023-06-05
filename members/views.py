@@ -29,6 +29,8 @@ def signup(request):
     return render(request, 'members/signup.html', {'form': form})
 
 # login function
+
+
 def loginPage(request):
 
     if request.method == 'POST':
