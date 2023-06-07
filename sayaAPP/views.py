@@ -36,14 +36,18 @@ class BlogListView(ListView):
     context_object_name = 'posts'
     ordering = ['-pub_date']
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        queryset = context['object_list']
-        paginator = Paginator(queryset, self.paginate_by)
-        page_number = self.request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context['page_obj'] = page_obj
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     queryset = context['object_list']
+    #     paginator = Paginator(queryset, self.paginate_by)
+    #     page_number = self.request.GET.get('page')
+    #     page_obj = paginator.get_page(page_number)
+    #     context['page_obj'] = page_obj
+    #     return context
+
+
+
+
 # home view
 class HomeView(ListView):
     model = Post
