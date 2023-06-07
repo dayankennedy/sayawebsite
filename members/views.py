@@ -91,5 +91,8 @@ def contact(request):
         return render(request, 'members/contact.html')
 
 # this thanks page
-def thanks(request):
+def thanks(request): 
     return render(request, 'members/thanks.html')
+
+
+
