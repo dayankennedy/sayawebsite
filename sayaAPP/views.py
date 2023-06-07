@@ -35,7 +35,11 @@ class BlogListView(ListView):
     context_object_name = 'posts'
     ordering = ['-pub_date']
 
-class HomeView(TemplateView):
+class HomeView(ListView):
+
+    model = Post
+    context_object_name = 'posts'
+
     template_name='sayaAPP/home.html'
 
 
@@ -43,4 +47,3 @@ class DonationView(TemplateView):
 
     template_name='sayaApp/donation.html'
 
-    
