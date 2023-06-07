@@ -26,7 +26,7 @@
                   <div class="carousel-item">
                      <div class="col-sm-12">
                         <h1 class="banner_taital">Service beyond self  </h1>
-                        <p class="banner_text">SOBAT RELIEF DEVELOPMENT ORGANIZATION(SRDO) acts as integrates self-development and individual concerns with public concerns, focusing on higher, broader, and more public levels of service. The organization conducts its activities for the sake of others, whether the public at large or a particular segment of the public.  NGO practitioners are to be exemplars of genuine giving out of concern for the welfare of others without the primary goal of their own enhancement or profit.       </p>
+                        <p class="banner_text">SOBAT RELIEF AGENCY acts as integrates self-development and individual concerns with public concerns, focusing on higher, broader, and more public levels of service. The organization conducts its activities for the sake of others, whether the public at large or a particular segment of the public.  NGO practitioners are to be exemplars of genuine giving out of concern for the welfare of others without the primary goal of their own enhancement or profit.       </p>
                         <div class="read_bt"><a href="#">Read More</a></div>
                      </div>
                   </div>
@@ -114,7 +114,7 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-8">
-                  <h2 class="about_taital">ABOUT S</h2>
+                  <h2 class="about_taital">about srdo</h2>
                   <p class="about_text"> SOBAT RELIEF DEVELOPMENT ORGANIZATION(SRDO) formerly known as Sobat Area Youth Association (SAYA) is non-profitable organization formed in June 2016 by a group of Youth Intellectuals in Mandeng to bridge gap in the area of youth and women empowerment, promotion of peaceful activities and conflict resolution in Sobat Area, Upper Nile and South Sudan in general. SRA has been registered under South Sudan Relief and Rehabilitation Commission under chapter 3, section 10 of NGOs Act, 2016 with REG. NO, 4778 on 29th March 2023.
                      SRA which was formerly registered as SAYA in February 2022 by Upper Nile SSRRC with registration NO, 052 changed its name after an approval of name change by its Board of Directors one year later after it signed a partnership agreement with ADRA-SS
                        </p>
@@ -254,19 +254,38 @@
                   <!-- <p class="news_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p> -->
                </div>
             </div>
-         {%for posts in posts%}
             <div class="events_section_2">
                <div class="row">
                   <div class="col-md-5">
-                     <div class="img_7"><img src="{{post.image.url}}" class="img_7"></div>
+                     <div class="img_7"><img src="{% static 'images/img-7.png' %}" class="img_7"></div>
+                     <div class="date_bt">
+                        <div class="date_text active"><a href="#">01</a></div>
+                        <div class="date_text"><a href="#">FEB</a></div>
+                     </div>
+                  </div>
+                  <div class="col-md-7">
+                     <h1 class="give_taital_1">The Internet tend to repeat</h1>
+                     <p class="ipsum_text_1">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+                     <h5 class="raised_text_1">Raised: $60,010 <span class="goal_text">Goal: $70,000</span></h5>
+                     <div class="donate_btn_main">
+                        <div class="readmore_btn"><a href="#">Read More</a></div>
+                        <div class="readmore_btn_1"><a href="donate.html">Donate Now</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="events_section_2">
+               <div class="row">
+                  <div class="col-md-5">
+                     <div class="img_7"><img src="{% static 'images/img-8.png' %}" class="img_7"></div>
                      <div class="date_bt">
                         <div class="date_text active"><a href="#">10</a></div>
                         <div class="date_text"><a href="#">FEB</a></div>
                      </div>
                   </div>
                   <div class="col-md-7">
-                     <h1 class="give_taital_1">{{post.title}}</h1>
-                     <p class="ipsum_text_1">{{post.content}}</p>
+                     <h1 class="give_taital_1">The Internet tend to repeat</h1>
+                     <p class="ipsum_text_1">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literatureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
                      <h5 class="raised_text_1">Raised: $60,010     <span class="goal_text">Goal: $70,000</span></h5>
                      <div class="donate_btn_main">
                         <div class="readmore_btn"><a href="#">Read More</a></div>
@@ -277,8 +296,6 @@
             </div>
          </div>
       </div>
-
-      {%endfor%}
       <!-- events section end -->
       <!-- donate section start -->
       <div class="donate_section layout_padding">
