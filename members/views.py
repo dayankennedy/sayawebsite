@@ -2,7 +2,7 @@ from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserChangeForm
-from django.urls import reverse,reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 from django.shortcuts import render, redirect
 from .forms import createUserForm
@@ -29,8 +29,6 @@ def signup(request):
     return render(request, 'members/signup.html', {'form': form})
 
 # login function
-
-
 def loginPage(request):
 
     if request.method == 'POST':
@@ -52,7 +50,6 @@ def logoutPage(request):
     return redirect('login')
 
 # profile editing view
-
 class UserEditView(UpdateView):
     template_name = 'edit_profile.html'
     fields = '__all__'
@@ -62,37 +59,17 @@ class UserEditView(UpdateView):
         return self.request.user
 
 # user profile update
-
 class UserProfileView(CreateView):
     model = UserProfile
     template_name = 'user_profile.html'
     fields = '__all__'
     success_url = reverse_lazy('home')
+
     def get_object(self):
         return self.request.user
 
 
-
-# conact view
-
-def contact(request):
-    if request.method == 'POST':
-        form=Contact(request.POST)
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        massage=request.POST.get('massage')
-        phone=request.POST.get('phone')
-        form.name=name
-        form.email=email
-        form.massage=massage
-        form.phone=phone
-        form.save()
-    else:
-        return render(request, 'members/contact.html')
-
 # this thanks page
-def thanks(request): 
+def thanks(request):
     return render(request, 'members/thanks.html')
-
-
 

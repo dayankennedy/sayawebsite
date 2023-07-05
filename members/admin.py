@@ -9,17 +9,3 @@ class UserProfileAdmin(admin.ModelAdmin):
                     'facebook_url', 'twitter_url', 'instagram_url', 'youtube_url')
 admin.site.register(UserProfile, UserProfileAdmin)
 
-
-
-# contacted messages model
-
-class ContactAdmin(admin.ModelAdmin):
-    list_display=('name','email','message','phone')
-admin.site.register(Contact, ContactAdmin)
-# donation contact
-
-
-class DonationContactAdmin(admin.ModelAdmin):
-    list_display=('name','email','phone_number', 'created_at')
-admin.site.register(DonationContact, DonationContactAdmin)
-

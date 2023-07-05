@@ -12,20 +12,33 @@ from crequest.middleware import CrequestMiddleware
 class BaseView(TemplateView):
     template_name='sayaAPP/Base.html'
 
-
+# about view
 class AboutView(TemplateView):
     template_name='sayaAPP/about.html'
 
 
-class ContactView(TemplateView):
+ 
+# conact view
+def contact(request):
+    if request.method == 'POST':
+        form = Contact(request.POST)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        massage = request.POST.get('massage')
+        phone = request.POST.get('phone')
+        form.name = name
+        form.email = email
+        form.massage = massage
+        form.phone = phone
+        form.save()
+    else:
+        return render(request, 'sayaAPP/contact.html')
 
-    template_name='sayaAPP/contact.html'
-
-
+# donation view
 class DonateView(TemplateView):
     template_name='sayaAPP/donate.html'
 
-
+# mission view
 class MissionView(TemplateView):
     template_name='sayaAPP/mission.html'
 
@@ -35,17 +48,6 @@ class BlogListView(ListView):
     template_name='sayaAPP/blogPage.html'
     context_object_name = 'posts'
     ordering = ['-pub_date']
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     queryset = context['object_list']
-    #     paginator = Paginator(queryset, self.paginate_by)
-    #     page_number = self.request.GET.get('page')
-    #     page_obj = paginator.get_page(page_number)
-    #     context['page_obj'] = page_obj
-    #     return context
-
-
 
 
 # home view
@@ -67,6 +69,6 @@ class HomeView(ListView):
 
 # donation view
 class DonationView(TemplateView):
-
     template_name='sayaApp/donation.html'
+
 

@@ -18,3 +18,4 @@ admin.site.register(CommentPost)
 
 # likes comments
 admin.site.register(LikePost)
+admin.site.register(Contact)
