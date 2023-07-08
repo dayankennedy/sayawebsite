@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sayaAPP',
-    'members'
+    'members',
+    'pdfDownload'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
