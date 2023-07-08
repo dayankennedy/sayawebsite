@@ -71,5 +71,8 @@ class UserProfileView(CreateView):
 
 # this thanks page
 def thanks(request):
+
+
+    
     return render(request, 'members/thanks.html')
 

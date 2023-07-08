@@ -8,7 +8,6 @@ from .models import *
 from crequest.middleware import CrequestMiddleware
 # Create your views here.
 
-
 class BaseView(TemplateView):
     template_name='sayaAPP/Base.html'
 
@@ -17,7 +16,6 @@ class AboutView(TemplateView):
     template_name='sayaAPP/about.html'
 
 
- 
 # conact view
 def contact(request):
     if request.method == 'POST':
@@ -49,7 +47,6 @@ class BlogListView(ListView):
     context_object_name = 'posts'
     ordering = ['-pub_date']
 
-
 # home view
 class HomeView(ListView):
     model = Post
@@ -69,6 +66,5 @@ class HomeView(ListView):
 
 # donation view
 class DonationView(TemplateView):
+
     template_name='sayaApp/donation.html'
-
-
