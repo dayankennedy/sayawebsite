@@ -1,20 +1,17 @@
 
-from django.shortcuts import render,redirect
-from django.http import HttpResponse, FileResponse
-from django.shortcuts import get_object_or_404
-from django.conf import settings
+from django.shortcuts import render
+from django.http import FileResponse
 import os
 from .models import *
 
 # creating the download view
-def download(request):
-    # Retrieve the file object from the database or any other source
-    file_obj = get_object_or_404(FileModel)
-    file_path = os.path.join(settings.MEDIA_ROOT, str(file_obj.file))
-    # Open the file using FileResponse
-    response = FileResponse(open(file_path, 'rb'))
-    response['Content-Type'] = 'application/octet-stream'
-    response['Content-Disposition'] = 'attachment; filename="' + file_obj.filename + '"'
 
-    
-    return render(request,'pdfDownload/download.html')
+def download(request):
+    # Replace 'path_to_pdf' with the actual path to your PDF file
+    path_to_pdf = '/Media/media/pdf_files/sabot_final.pdf'
+    filename = os.path.basename(path_to_pdf)
+    with open(path_to_pdf, 'rb') as pdf_file:
+        response = FileResponse(pdf_file, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        return response
+

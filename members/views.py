@@ -55,6 +55,7 @@ class UserEditView(UpdateView):
     fields = '__all__'
     success_url = reverse_lazy('home')
 
+
     def get_object(self):
         return self.request.user
 
@@ -64,15 +65,11 @@ class UserProfileView(CreateView):
     template_name = 'user_profile.html'
     fields = '__all__'
     success_url = reverse_lazy('home')
-
     def get_object(self):
         return self.request.user
 
-
 # this thanks page
 def thanks(request):
-
-
     
     return render(request, 'members/thanks.html')
 
