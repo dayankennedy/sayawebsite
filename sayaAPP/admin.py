@@ -8,7 +8,7 @@ admin.site.site_header = 'SRDO Admin'
 admin.site.site_title='SRDO ADMIN'
 
 class PostAdmin(admin.ModelAdmin):
-    list_display= ('title', 'pub_date', 'image')
+    list_display= ('title', 'date', 'image')
 admin.site.register(Post,PostAdmin)
 
 

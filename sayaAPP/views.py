@@ -1,19 +1,25 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.views.generic import ListView,CreateView, TemplateView
+from django.views.generic import ListView, CreateView, TemplateView
 from django.views.generic import DeleteView, UpdateView
 from django.views.generic import DetailView
 from .models import *
 from crequest.middleware import CrequestMiddleware
+from datetime import date
+
+
 # Create your views here.
 
+
 class BaseView(TemplateView):
-    template_name='sayaAPP/Base.html'
+    template_name = 'sayaAPP/Base.html'
 
 # about view
+
+
 class AboutView(TemplateView):
-    template_name='sayaAPP/about.html'
+    template_name = 'sayaAPP/about.html'
 
 
 # conact view
@@ -33,27 +39,35 @@ def contact(request):
         return render(request, 'sayaAPP/contact.html')
 
 # donation view
+
+
 class DonateView(TemplateView):
-    template_name='sayaAPP/donate.html'
+    template_name = 'sayaAPP/donate.html'
 
 # mission view
+
+
 class MissionView(TemplateView):
-    template_name='sayaAPP/mission.html'
+    template_name = 'sayaAPP/mission.html'
 
 # bolog view
+
+
 class BlogListView(ListView):
     model = Post
-    template_name='sayaAPP/blogPage.html'
+    template_name = 'sayaAPP/blogPage.html'
     context_object_name = 'posts'
-    ordering = ['-pub_date']
+    ordering = ['-date']
 
 # home view
+
+
 class HomeView(ListView):
     model = Post
     context_object_name = 'posts'
-    template_name='sayaAPP/home.html'
+    template_name = 'sayaAPP/home.html'
     paginate_by = 2
-    ordering = ['-pub_date']
+    ordering = ['-date']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -65,6 +79,8 @@ class HomeView(ListView):
         return context
 
 # donation view
+
+
 class DonationView(TemplateView):
 
-    template_name='sayaApp/donation.html'
+    template_name = 'sayaApp/donation.html'
