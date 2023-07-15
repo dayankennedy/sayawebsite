@@ -1,13 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
-from datetime import date
 # Create your models here.
 
 User = get_user_model()
 
 # post model
-
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -60,6 +58,5 @@ class DonationContact(models.Model):
     phone_number = models.CharField(max_length=20)
     date = models.DateTimeField(auto_now_add=True)
 
-
-def hello():
-    print('')
+    def __str__(self):
+        return self.phone_number
