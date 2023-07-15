@@ -86,7 +86,7 @@
                      <a class="nav-link" href="{%  url 'about' %}">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="{%  url 'download_file'   %}">Profile</a>
+                     <a class="nav-link" href="{%  url 'download_file'   %}">srdo Profile</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'donate'%}">Donate</a>
@@ -97,20 +97,30 @@
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'contact'%}">Contact Us</a>
                   </li>
+                  {% if user.is_authenticated %}
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'signup'%}">signup</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'login'%}">login</a>
                   </li>
+
+                  {% else %}
                   <li class="nav-item">
                      <a class="nav-link" href="{%  url 'logout'%}">logout</a>
                   </li>
+
                   <li class="nav-link">
-                     <a href="www.google.com">
-                        <img src="{% static 'images/client-img.png' %}" alt="Profile Picture">
+                     <a href="#">
+                        {% if profile.profile_picture %}
+                        <img src="{{post.user.userprofile.profile_pic.url }}" alt="Profile Picture">
+
+                        {% else %}
+                        <img src="{{post.user.userprofile.deault_profile_pic.url }}" alt="Profile Picture">
+                        {% endif %}
                      </a>
                   </li>
+                  {% endif %}
                </ul>
                <!-- <form class="form-inline my-2 my-lg-0">
                   <div class="search_icon"><a href="#"><img src="{% static 'images/search-icon.png' %}"></a></div>
@@ -165,7 +175,7 @@
                <div class="col-sm-6 col-md-6 col-lg-3">
                   <h4 class="footer_taital">address</h4>
                   <p class="footer_text">South Sudan, juba</p>
-                  <p class="footer_text">+211 91 7313 849</p>
+                  <p class="footer_text">+211 91 7313 849</p> 
                   <p class="footer_text">+211 98 0253 370</p>
                   <p class="footer_text">info@srdosouthsudan.org</p>
                </div>
