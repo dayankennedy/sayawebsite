@@ -15,6 +15,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    # changing the name of model in the admin interface
+    class Meta:
+        verbose_name_plural  = 'News & Events'  
+
+
+
+ 
+
+
 # comment post model
 
 
