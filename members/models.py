@@ -3,12 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    bio = models.TextField(blank=True ,null=True)
-    profile_pic = models.ImageField(upload_to='profile_pics', default='/profile_pic/default_profile_pic.PNG/')
+    bio = models.TextField(blank=True, null=True)
+    profile_pic = models.ImageField(
+        upload_to='profile_pic', default='/profile_pics/default_profile.PNG/')
     website_url = models.CharField(max_length=50, null=True, blank=True)
     facebook_url = models.CharField(max_length=50, null=True, blank=True)
     twitter_url = models.CharField(max_length=50, null=True, blank=True)

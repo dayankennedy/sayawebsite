@@ -102,10 +102,10 @@
                   <li class="nav-link">
                      <a href="#">
                         {% if profile.profile_picture %}
-                        <img src="{{post.user.userprofile.profile_pic.url }}" alt="Profile Picture">
+                        <img src="{{post.user.userprofile.profile.PNG.url }}" alt="Profile Picture">
                         
                         {% else %}
-                        <img src="{{post.user.userprofile.deault_profile_pic.url }}" alt="Profile Picture">
+                        <img src="{{post.user.userprofile.deault_profile.PNG.url }}" alt="Profile Picture">
                         {% endif %}
                      </a>
                   </li>
@@ -148,8 +148,7 @@
                         <div class="footer_menu">
                            <ul>
                               <li><a href="{%  url 'home'  %}">Home</a></li>
-                              <li><a href="{%  url 'donation' %}">Donate</a></li>
-                              <li><a href="{%  url 'donation' %}">Donations</a></li>
+                              <li><a href="{%  url 'donate' %}">Donations</a></li>
                               <li><a href="{%  url 'contact' %}">Contact us</a></li>
                            </ul>
                         </div>

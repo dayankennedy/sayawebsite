@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.views.generic import ListView, CreateView, TemplateView
@@ -7,6 +7,7 @@ from django.views.generic import DetailView
 from .models import *
 from crequest.middleware import CrequestMiddleware
 from datetime import date
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -82,5 +83,29 @@ class HomeView(ListView):
 
 
 class DonationView(TemplateView):
-
     template_name = 'sayaApp/donation.html'
+
+
+
+class PostdetailsView(DetailView):
+    model = Post
+    context_object_name = 'posts'
+    template_name = 'sayaApp/postdetails.html'
+
+
+class UpdateDetailview(UpdateView):
+    model = Post
+    fields = ['title', 'content']
+    context_object_name = 'posts'
+    template_name = 'sayaApp/post_update.html'
+
+class postDelete(DeleteView):
+    model = Post
+    success_url = reverse_lazy('posts')  # Replace 'post_list' with the name of the URL pattern for your post list view
+    context_object_name = 'post'
+    template_name='sayaApp/post_delete.html'
+
+class postCreateView(CreateView):
+    model = Post
+    context_object_name = 'posts'
+    template_name='sayaApp/create_post.html'
