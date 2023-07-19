@@ -8,7 +8,7 @@ from .models import *
 
 def download(request):
     # Replace 'path_to_pdf' with the actual path to your PDF file
-    path_to_pdf = '/Media/media/pdf_files/sabot_final.pdf'
+    path_to_pdf = 'Media/media/pdf_files/sabot_final.pdf'
     filename = os.path.basename(path_to_pdf)
     with open(path_to_pdf, 'rb') as pdf_file:
         response = FileResponse(pdf_file, content_type='application/pdf')

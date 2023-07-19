@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Post,PostAdmin)
 
- 
+
 # comments registration
 admin.site.register(CommentPost)
 

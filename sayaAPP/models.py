@@ -7,6 +7,7 @@ User = get_user_model()
 
 # post model
 
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -16,19 +17,16 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     # changing the name of model in the admin interface
+
     class Meta:
-        verbose_name_plural  = 'News & Events'  
-
-
-
- 
+        verbose_name_plural = 'News & Events'
 
 
 # comment post model
 
 
 class CommentPost(models.Model):
-    author = models.CharField(max_length=50)
+    author = models.ForeignKey(User, max_length=50, on_delete=models.CASCADE)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
@@ -67,5 +65,6 @@ class DonationContact(models.Model):
     phone_number = models.CharField(max_length=20)
     date = models.DateTimeField(auto_now_add=True)
 
+    
     def __str__(self):
         return self.phone_number
