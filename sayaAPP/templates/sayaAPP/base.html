@@ -99,18 +99,18 @@
                   </li>
                   {% if user.is_authenticated %}
                   
+                  <li class="nav-item">
+                     <a class="nav-link" href="{%  url 'logout'%}">logout</a>
+                  </li>
                   <li class="nav-link">
                      <a href="#">
                         {% if profile.profile_picture %}
-                        <img src="{{post.user.userprofile.profile.PNG.url }}" alt="Profile Picture">
+                        <img src="{{user.userprofile.profile_pic.url }}" alt="myPicture">
                         
                         {% else %}
-                        <img src="{{post.user.userprofile.deault_profile.PNG.url }}" alt="Profile Picture">
+                        <img src="{{ user.userprofile.profile_pic.url }}" alt="Picture">
                         {% endif %}
                      </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{%  url 'logout'%}">logout</a>
                   </li>
                   
                   {% else %}
@@ -238,12 +238,9 @@
       </script>
       <!-- signup js ends -->
       <!-- donation -->
-      
       <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' %}"></script>
       <script src="{% static 'https://raw.githubusercontent.com/jerryluk/jquery.autogrow/master/jquery.autogrow-min.js' %}"></script>
       <script  src="{% static 'js/donate.js' %}"></script>
-      
-            
          <!-- signup js starts -->
    </body>
 </html>

@@ -1,14 +1,15 @@
-from typing import DefaultDict
 from django.db import models
 from django.contrib.auth.models import User
+from typing import DefaultDict
 
 
 class UserProfile(models.Model):
-
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
     profile_pic = models.ImageField(
-        upload_to='profile_pic', default='/profile_pics/default_profile.PNG/')
+        upload_to='profile_pics', default='default_profile.PNG')
+    profile_cover=models.ImageField(
+        upload_to='profile_cover', default='default_cover.PNG')
     website_url = models.CharField(max_length=50, null=True, blank=True)
     facebook_url = models.CharField(max_length=50, null=True, blank=True)
     twitter_url = models.CharField(max_length=50, null=True, blank=True)
