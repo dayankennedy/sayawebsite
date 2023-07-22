@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 User = get_user_model()
 
 # post model
-
-
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -22,9 +20,7 @@ class Post(models.Model):
         verbose_name_plural = 'News & Events'
 
 
-# comment post model
-
-
+# comment post model 
 class CommentPost(models.Model):
     author = models.ForeignKey(User, max_length=50, on_delete=models.CASCADE)
     text = models.TextField()
@@ -57,14 +53,12 @@ class Contact(models.Model):
         return self.name
 
 # donation model
-
-
 class DonationContact(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=4000)
     phone_number = models.CharField(max_length=20)
     date = models.DateTimeField(auto_now_add=True)
-
     
     def __str__(self):
         return self.phone_number
+

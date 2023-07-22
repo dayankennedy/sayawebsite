@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView, UpdateView
+from typing import Any, Dict
+from django.views.generic import TemplateView, UpdateView, DetailView
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
@@ -7,8 +8,9 @@ from django.contrib import messages
 from .models import *
 from sayaAPP.models import *
 
-
 # from .forms import ContactForm
+
+
 app_name = 'members'
 
 # Create your views here.
@@ -28,8 +30,6 @@ def signup(request):
     else:
         form = createUserForm()
     return render(request, 'members/signup.html', {'form': form})
-
-
 
 
 # login function
@@ -62,13 +62,12 @@ class UserEditView(UpdateView):
         return self.request.user
 
 # user profile 
-class UserProfileView(TemplateView):
+class UserProfileView(DetailView):
     model = UserProfile
     template_name = 'user_profile.html'
-    fields = '__all__'
-    success_url = reverse_lazy('home')
-    def get_object(self):
-        return self.request.user
 
+    def get_context_data(self, **kwargs):
+        
+        return super().get_context_data(**kwargs)
 # this thanks page
 
