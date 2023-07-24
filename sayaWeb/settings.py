@@ -88,7 +88,7 @@ DATABASES = {
 # POSTGRESS DATABASE
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL')),
-    'host': ''
+
 }
 
 # Password validation
