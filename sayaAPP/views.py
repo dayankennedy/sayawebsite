@@ -52,8 +52,6 @@ class MissionView(TemplateView):
     template_name = 'sayaAPP/mission.html'
 
 # bolog view
-
-
 class BlogListView(ListView):
     model = Post
     template_name = 'sayaAPP/blogPage.html'
@@ -61,8 +59,6 @@ class BlogListView(ListView):
     ordering = ['-date']
 
 # home view
-
-
 class HomeView(ListView):
     model = Post
     context_object_name = 'posts'
@@ -80,8 +76,6 @@ class HomeView(ListView):
         return context
 
 # donation view
-
-
 class DonationView(TemplateView):
     template_name = 'sayaApp/donation.html'
 

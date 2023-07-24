@@ -5,7 +5,10 @@ from django.contrib.auth.models import User
 
 User = get_user_model()
 
-# post model
+
+
+
+# post model  
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -15,7 +18,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     # changing the name of model in the admin interface
-
     class Meta:
         verbose_name_plural = 'News & Events'
 
@@ -25,6 +27,9 @@ class CommentPost(models.Model):
     author = models.ForeignKey(User, max_length=50, on_delete=models.CASCADE)
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Comments'
 
     def __str__(self):
         return self.author
