@@ -1,9 +1,11 @@
 {% extends 'sayaAPP/base.html'%} {% load static %} {%block content %}
 
+<!-- blog section start -->
 <section id="main-container" class="main-container">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mb-5 mb-lg-0">
+        {%for post in posts %}
         <div class="post">
           <div class="post-media post-image">
             <img
@@ -24,8 +26,7 @@
                   <i class="far fa-folder-open"></i><a href="#"> News</a>
                 </span>
                 <span class="post-meta-date"
-                  ><i class="far fa-calendar"></i> {{post.date|date:"d F,
-                  Y"}}</span
+                  ><i class="far fa-calendar"></i> {{ post.date }}</span
                 >
                 <span class="post-comment"
                   ><i class="far fa-comment"></i> 03<a
@@ -54,7 +55,7 @@
           <!-- post-body end -->
         </div>
         <!-- 1st post end -->
-
+        {%endfor%}
         <nav class="paging" aria-label="Page navigation example">
           <ul class="pagination">
             <li class="page-item">
@@ -80,65 +81,26 @@
           <div class="widget recent-posts">
             <h3 class="widget-title">Recent Posts</h3>
             <ul class="list-unstyled">
+              {%for post in posts%}
               <li class="d-flex align-items-center">
                 <div class="posts-thumb">
                   <a href="#"
                     ><img
                       loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news1.jpg' %}"
+                      width="50%"
+                      height="40%"
+                      src="{{ post.image.url }}"
                   /></a>
                 </div>
                 <div class="post-info">
                   <h4 class="entry-title">
-                    <a href="#"
-                      >We Just Completes $17.6 Million Medical Clinic In
-                      Mid-missouri</a
-                    >
+                    <a href="#"> {{post.title}} </a>
                   </h4>
                 </div>
               </li>
+
+              {%endfor%}
               <!-- 1st post end-->
-
-              <li class="d-flex align-items-center">
-                <div class="posts-thumb">
-                  <a href="#"
-                    ><img
-                      loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news2.jpg' %}"
-                  /></a>
-                </div>
-                <div class="post-info">
-                  <h4 class="entry-title">
-                    <a href="#"
-                      >Thandler Airport Water Reclamation Facility Expansion
-                      Project Named</a
-                    >
-                  </h4>
-                </div>
-              </li>
-              <!-- 2nd post end-->
-
-              <li class="d-flex align-items-center">
-                <div class="posts-thumb">
-                  <a href="#"
-                    ><img
-                      loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news3.jpg' %}"
-                  /></a>
-                </div>
-                <div class="post-info">
-                  <h4 class="entry-title">
-                    <a href="#"
-                      >Silicon Bench And Cornike Begin Construction Solar
-                      Facilities</a
-                    >
-                  </h4>
-                </div>
-              </li>
-              <!-- 3rd post end-->
             </ul>
           </div>
           <!-- Recent post end -->
@@ -192,5 +154,5 @@
   <!-- Container end -->
 </section>
 <!-- Main container end -->
-
+<!-- blog section end -->
 {%endblock%}
