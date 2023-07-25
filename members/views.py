@@ -69,5 +69,4 @@ class UserProfileView(DetailView):
     def get_context_data(self, **kwargs):
         
         return super().get_context_data(**kwargs)
-# this thanks page
-
+# this thanks pagels

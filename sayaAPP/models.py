@@ -5,9 +5,6 @@ from django.contrib.auth.models import User
 
 User = get_user_model()
 
-
-
-
 # post model  
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -35,7 +32,6 @@ class CommentPost(models.Model):
         return self.author
 
 # like post model
-
 
 class LikePost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
