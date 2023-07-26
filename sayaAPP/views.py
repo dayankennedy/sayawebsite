@@ -10,6 +10,7 @@ from datetime import date
 from django.urls import reverse_lazy
 
 
+
 # Create your views here.
 
 
@@ -90,6 +91,11 @@ class PostdetailsView(DetailView):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/postdetails.html'
+
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['pk'] = self.kwargs['pk']
+            return context
 
 
 class UpdateDetailview(UpdateView):
