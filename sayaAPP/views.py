@@ -117,3 +117,4 @@ class postCreateView(CreateView):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/create_post.html'
+

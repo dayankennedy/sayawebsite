@@ -21,3 +21,4 @@ urlpatterns = [
     # path('post/<int:post_id>/unlike/', unlike_post, name='unlike_post')
 
 ]
+
