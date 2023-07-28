@@ -26,7 +26,7 @@ class CommentPost(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'Comments'
+        verbose_name_plural = 'Comments'  #changing name to 'Comments'
 
     def __str__(self):
         return self.author

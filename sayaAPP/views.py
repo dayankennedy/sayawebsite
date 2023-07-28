@@ -8,6 +8,7 @@ from .models import *
 from crequest.middleware import CrequestMiddleware
 from datetime import date
 from django.urls import reverse_lazy
+from django.urls import reverse
 
 
 
@@ -17,9 +18,15 @@ from django.urls import reverse_lazy
 class BaseView(TemplateView):
     template_name = 'sayaAPP/Base.html'
 
+# home view
+class HomeView(ListView):
+    model = Post
+    context_object_name = 'posts'
+    template_name = 'sayaAPP/home.html'
+    paginate_by = 2
+    ordering = ['-date']
+
 # about view
-
-
 class AboutView(TemplateView):
     template_name = 'sayaAPP/about.html'
 
@@ -40,35 +47,24 @@ def contact(request):
     else:
         return render(request, 'sayaAPP/contact.html')
 
+
+
 # donation view
-
-
 class DonateView(TemplateView):
     template_name = 'sayaAPP/donate.html'
 
+
 # mission view
-
-
 class MissionView(TemplateView):
     template_name = 'sayaAPP/mission.html'
 
+
+
 # bolog view
-
-
 class BlogListView(ListView):
     model = Post
     template_name = 'sayaAPP/blogPage.html'
     context_object_name = 'posts'
-    ordering = ['-date']
-
-# home view
-
-
-class HomeView(ListView):
-    model = Post
-    context_object_name = 'posts'
-    template_name = 'sayaAPP/home.html'
-    paginate_by = 2
     ordering = ['-date']
 
     def get_context_data(self, **kwargs):
@@ -80,13 +76,7 @@ class HomeView(ListView):
         context['page_obj'] = page_obj
         return context
 
-# donation view
-
-
-class DonationView(TemplateView):
-    template_name = 'sayaApp/donation.html'
-
-
+# post detail view
 class PostdetailsView(DetailView):
     model = Post
     context_object_name = 'posts'
@@ -94,8 +84,17 @@ class PostdetailsView(DetailView):
 
     def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
-            context['pk'] = self.kwargs['pk']
+            context['post_pk'] = self.kwargs['pk']
             return context
+    
+    def get_success_url(self):
+        return reverse('blog:posts')
+
+
+# donation view
+class DonationView(TemplateView):
+    template_name = 'sayaApp/donation.html'
+
 
 
 class UpdateDetailview(UpdateView):
