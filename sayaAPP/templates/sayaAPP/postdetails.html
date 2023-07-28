@@ -8,7 +8,7 @@
           <div class="post-media post-image">
             <img
               loading="lazy"
-              src="{{post.image.url}}"
+              src="{{ post.image.url }}"
               class="img-fluid"
               alt="post-image"
             />
@@ -24,7 +24,7 @@
                   <i class="far fa-folder-open"></i><a href="#"> News</a>
                 </span>
                 <span class="post-meta-date"
-                  ><i class="far fa-calendar"></i> June 14, 2016</span
+                  ><i class="far fa-calendar"></i> {{ post.date }}</span
                 >
                 <span class="post-comment"
                   ><i class="far fa-comment"></i> 03<a
@@ -34,12 +34,12 @@
                   ></span
                 >
               </div>
-              <h2 class="entry-title">{{post.title}}</h2>
+              <h2 class="entry-title">{{ post.title }}</h2>
             </div>
             <!-- header end -->
 
             <div class="entry-content">
-              <p>{{post.content}}</p>
+              <p>{{ post.content}}</p>
 
               <blockquote>
                 <p>
