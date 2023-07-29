@@ -10,7 +10,7 @@ from datetime import date
 from django.urls import reverse_lazy
 from django.urls import reverse
 
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -19,6 +19,8 @@ class BaseView(TemplateView):
     template_name = 'sayaAPP/Base.html'
 
 # home view
+
+
 class HomeView(ListView):
     model = Post
     context_object_name = 'posts'
@@ -27,6 +29,8 @@ class HomeView(ListView):
     ordering = ['-date']
 
 # about view
+
+
 class AboutView(TemplateView):
     template_name = 'sayaAPP/about.html'
 
@@ -48,7 +52,6 @@ def contact(request):
         return render(request, 'sayaAPP/contact.html')
 
 
-
 # donation view
 class DonateView(TemplateView):
     template_name = 'sayaAPP/donate.html'
@@ -59,42 +62,31 @@ class MissionView(TemplateView):
     template_name = 'sayaAPP/mission.html'
 
 
-
-# bolog view
+# blog view
 class BlogListView(ListView):
     model = Post
     template_name = 'sayaAPP/blogPage.html'
     context_object_name = 'posts'
     ordering = ['-date']
+    paginate_by = 2
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        queryset = context['object_list']
-        paginator = Paginator(queryset, self.paginate_by)
-        page_number = self.request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context['page_obj'] = page_obj
-        return context
 
 # post detail view
-class PostdetailsView(DetailView):
+class BlogdetailsView(DetailView, LoginRequiredMixin):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/postdetails.html'
 
     def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            context['post_pk'] = self.kwargs['pk']
-            return context
-    
-    def get_success_url(self):
-        return reverse('blog:posts')
+        context = super().get_context_data(**kwargs)
+        context['image'] = self.object.image
+        context['title'] = self.object.title
+        return context
 
 
 # donation view
 class DonationView(TemplateView):
     template_name = 'sayaApp/donation.html'
-
 
 
 class UpdateDetailview(UpdateView):
@@ -116,4 +108,3 @@ class postCreateView(CreateView):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/create_post.html'
-

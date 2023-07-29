@@ -49,19 +49,7 @@
                   irure dolor.<cite>- Anger Mathe</cite>
                 </p>
               </blockquote>
-
-              <p>
-                Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                fugit, sed quia consequuntur magni dolores eos quira tione
-                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                non numquam eius modi tempora incidunt ue magnam aliquam quaerat
-                voluptatem.
-              </p>
             </div>
-
             <div
               class="tags-area d-flex align-items-center justify-content-between"
             >
@@ -311,17 +299,13 @@
               <li class="d-flex align-items-center">
                 <div class="posts-thumb">
                   <a href="#"
-                    ><img
-                      loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news1.jpg' %}"
+                    ><img loading="lazy" alt="img" src="{{post.image.url}}"
                   /></a>
                 </div>
                 <div class="post-info">
                   <h4 class="entry-title">
                     <a href="#"
-                      >We Just Completes $17.6 Million Medical Clinic In
-                      Mid-missouri</a
+                      >{{ post.date }}</a
                     >
                   </h4>
                 </div>
