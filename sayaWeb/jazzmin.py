@@ -137,11 +137,8 @@ JAZZMIN_SETTINGS = {
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # Add a language dropdown into the admin
 
-
-
     "theme": "flatly",
     "dark_mode_theme": "darkly",
-
 
 }
 

@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 # Create your models here.
-
 User = get_user_model()
 
 # post model  
@@ -18,7 +17,6 @@ class Post(models.Model):
     class Meta:
         verbose_name_plural = 'News & Events'
 
-
 # comment post model 
 class CommentPost(models.Model):
     author = models.ForeignKey(User, max_length=50, on_delete=models.CASCADE)
@@ -32,7 +30,6 @@ class CommentPost(models.Model):
         return self.author
 
 # like post model
-
 class LikePost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -40,7 +37,6 @@ class LikePost(models.Model):
 
     def __str__(self):
         return f"{self.user.username} likes {self.post.title}"
-
 
 # contac model
 class Contact(models.Model):

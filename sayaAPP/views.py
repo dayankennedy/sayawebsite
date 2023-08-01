@@ -9,11 +9,9 @@ from crequest.middleware import CrequestMiddleware
 from datetime import date
 from django.urls import reverse_lazy
 from django.urls import reverse
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-
 
 class BaseView(TemplateView):
     template_name = 'sayaAPP/Base.html'
@@ -82,7 +80,6 @@ class BlogdetailsView(DetailView, LoginRequiredMixin):
         context['image'] = self.object.image
         context['title'] = self.object.title
         return context
-
 
 # donation view
 class DonationView(TemplateView):

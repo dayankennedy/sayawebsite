@@ -11,7 +11,6 @@ urlpatterns = [
     path('mission/', MissionView.as_view(), name='mission'),
     path('about/', AboutView.as_view(), name='about'),
     path('contact/', views.contact, name='contact'),
-
     # generic classe base views
     path('blog/', BlogListView.as_view(), name='blog'),
     path('blog/<int:pk>',BlogdetailsView.as_view() , name='postdetail'),

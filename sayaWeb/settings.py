@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
-
+    'django_admin_logs',
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -146,7 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media/media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 JAZZMIN_SETTINGS=JAZZMIN_SETTINGS
-
-
+# django login trails
+DJANGO_ADMIN_LOGS_DELETABLE = True
