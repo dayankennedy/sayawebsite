@@ -5,11 +5,9 @@ from django.views.generic import ListView, CreateView, TemplateView
 from django.views.generic import DeleteView, UpdateView
 from django.views.generic import DetailView
 from .models import *
-from crequest.middleware import CrequestMiddleware
-from datetime import date
 from django.urls import reverse_lazy
-from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
@@ -82,6 +80,8 @@ class BlogdetailsView(DetailView, LoginRequiredMixin):
         return context
 
 # donation view
+
+
 class DonationView(TemplateView):
     template_name = 'sayaApp/donation.html'
 
@@ -95,7 +95,6 @@ class UpdateDetailview(UpdateView):
 
 class postDelete(DeleteView):
     model = Post
-    # Replace 'post_list' with the name of the URL pattern for your post list view
     success_url = reverse_lazy('posts')
     context_object_name = 'post'
     template_name = 'sayaApp/post_delete.html'
@@ -105,3 +104,15 @@ class postCreateView(CreateView):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/create_post.html'
+
+
+def like_post(request, pk):
+    post = Post.objects.get(id=pk)
+    user = request.user
+    if user in post.likes.all():
+        post.likes.remove(user)
+    else:
+        post.likes.add(user)
+    post.save()
+
+    # return redirect(request.META['HTTP_REFERER'])
