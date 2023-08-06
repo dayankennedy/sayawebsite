@@ -70,7 +70,7 @@ class BlogListView(ListView):
 # post detail view
 class BlogdetailsView(DetailView, LoginRequiredMixin):
     model = Post
-    context_object_name = 'posts'
+    context_object_name = 'post'
     template_name = 'sayaApp/postdetails.html'
 
     def get_context_data(self, **kwargs):
@@ -78,8 +78,6 @@ class BlogdetailsView(DetailView, LoginRequiredMixin):
         context['image'] = self.object.image
         context['title'] = self.object.title
         return context
-
-# donation view
 
 
 class DonationView(TemplateView):
@@ -114,5 +112,3 @@ def like_post(request, pk):
     else:
         post.likes.add(user)
     post.save()
-
-    # return redirect(request.META['HTTP_REFERER'])
