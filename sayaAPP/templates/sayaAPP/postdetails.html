@@ -297,6 +297,7 @@
             <h3 class="widget-title">Recent Posts</h3>
             <ul class="list-unstyled">
               <li class="d-flex align-items-center">
+                {% for post in posts%}
                 <div class="posts-thumb">
                   <a href="#"
                     ><img loading="lazy" alt="img" src="{{post.image.url }}"
@@ -307,48 +308,9 @@
                     <a href="#">{{ post.title }}</a>
                   </h4>
                 </div>
-              </li>
-              <!-- 1st post end-->
+              </li> 
 
-              <li class="d-flex align-items-center">
-                <div class="posts-thumb">
-                  <a href="#"
-                    ><img
-                      loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news2.jpg' %}"
-                  /></a>
-                </div>
-                <div class="post-info">
-                  <h4 class="entry-title">
-                    <a href="#"
-                      >Thandler Airport Water Reclamation Facility Expansion
-                      Project Named</a
-                    >
-                  </h4>
-                </div>
-              </li>
-              <!-- 2nd post end-->
-
-              <li class="d-flex align-items-center">
-                <div class="posts-thumb">
-                  <a href="#"
-                    ><img
-                      loading="lazy"
-                      alt="img"
-                      src="{% static 'blogimages/news/news3.jpg' %}"
-                  /></a>
-                </div>
-                <div class="post-info">
-                  <h4 class="entry-title">
-                    <a href="#"
-                      >Silicon Bench And Cornike Begin Construction Solar
-                      Facilities</a
-                    >
-                  </h4>
-                </div>
-              </li>
-              <!-- 3rd post end-->
+              {% endfor %}
             </ul>
           </div>
           <!-- Recent post end -->

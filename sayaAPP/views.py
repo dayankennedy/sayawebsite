@@ -9,14 +9,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# Create your views here.
-
 class BaseView(TemplateView):
     template_name = 'sayaAPP/Base.html'
 
 # home view
-
-
 class HomeView(ListView):
     model = Post
     context_object_name = 'posts'
@@ -25,8 +21,6 @@ class HomeView(ListView):
     ordering = ['-date']
 
 # about view
-
-
 class AboutView(TemplateView):
     template_name = 'sayaAPP/about.html'
 
@@ -79,31 +73,31 @@ class BlogdetailsView(DetailView, LoginRequiredMixin):
         context['title'] = self.object.title
         return context
 
-
+# donations view
 class DonationView(TemplateView):
     template_name = 'sayaApp/donation.html'
 
-
+# update view
 class UpdateDetailview(UpdateView):
     model = Post
     fields = ['title', 'content']
     context_object_name = 'posts'
     template_name = 'sayaApp/post_update.html'
 
-
+# post delete view
 class postDelete(DeleteView):
     model = Post
     success_url = reverse_lazy('posts')
     context_object_name = 'post'
     template_name = 'sayaApp/post_delete.html'
 
-
+# post create view
 class postCreateView(CreateView):
     model = Post
     context_object_name = 'posts'
     template_name = 'sayaApp/create_post.html'
 
-
+# post like view
 def like_post(request, pk):
     post = Post.objects.get(id=pk)
     user = request.user
@@ -112,3 +106,4 @@ def like_post(request, pk):
     else:
         post.likes.add(user)
     post.save()
+ 
