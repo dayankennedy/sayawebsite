@@ -106,4 +106,3 @@ def like_post(request, pk):
     else:
         post.likes.add(user)
     post.save()
- 

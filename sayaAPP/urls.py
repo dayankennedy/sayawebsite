@@ -17,6 +17,6 @@ urlpatterns = [
     path('postdelete/<int:pk>',postDelete.as_view() , name='postdelete'),
     # # like and unlike partterns
     path('post/<int:post_id>/like/', like_post, name='like_post'),
-    # path('post/<int:post_id>/unlike/', unlike_post, name='unlike_post')
+
 ]
 

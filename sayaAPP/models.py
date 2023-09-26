@@ -7,7 +7,6 @@ User = get_user_model()
 
 # category models
 
-
 class Category(models.Model):
     name = models.CharField(max_length=255, default='News')
     slug = models.SlugField(unique=True)
@@ -49,7 +48,6 @@ class CommentPost(models.Model):
         return self.author
 
 # like post model
-
 
 class LikePost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
