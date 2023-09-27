@@ -9,7 +9,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "srdo Admin",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "images/header-logo.png",
+    "site_logo": "images/footer-logo.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
     "login_logo": False,
